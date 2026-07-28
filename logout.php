@@ -1,8 +1,6 @@
 <?php
-// logout.php
 session_start();
 
-// (opsional) catat aktivitas logout ke tbl_log sebelum session dihapus
 if (isset($_SESSION['id_user'])) {
     include 'config/koneksi.php';
     $id_user = $_SESSION['id_user'];

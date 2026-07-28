@@ -1,5 +1,4 @@
 <?php
-// dashboard.php
 include 'includes/cek_session.php';
 ?>
 <!DOCTYPE html>

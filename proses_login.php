@@ -1,5 +1,4 @@
 <?php
-// proses_login.php
 session_start();
 include 'config/koneksi.php';
 
