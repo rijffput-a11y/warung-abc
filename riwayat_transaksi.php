@@ -11,11 +11,13 @@ $hasil = mysqli_query($koneksi, $sql);
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Riwayat Transaksi - Warung ABC</title></head>
+<head>
+    <title>Riwayat Transaksi - Warung ABC</title>
+</head>
 <body>
     <h1>Riwayat Transaksi</h1>
     <table border="1" cellpadding="6">
-        <tr><th>No</th><th>Transaksi</th><th>Tanggal</th><th>Kasir</th><th>Total Bayar</th></tr>
+        <tr><th>No_Transaksi</th><th>Tanggal</th><th>Kasir</th><th>Total Bayar</th></tr>
         <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
         <tr>
             <td><?php echo $row['no_transaksi']; ?></td>

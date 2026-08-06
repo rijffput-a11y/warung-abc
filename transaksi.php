@@ -14,7 +14,9 @@ foreach ($_SESSION['keranjang'] as $item) {
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Transaksi - Warung ABC</title></head>
+<head>
+    <title>Transaksi - Warung ABC</title>
+</head>
 <body>
 <h1>Transaksi Penjualan</h1>
 

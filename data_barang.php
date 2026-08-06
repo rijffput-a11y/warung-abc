@@ -7,7 +7,9 @@ $hasil = mysqli_query($koneksi, $sql);
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Data Barang - Warung ABC</title></head>
+<head>
+    <title>Data Barang - Warung ABC</title>
+</head>
 <body>
     <h1>Data Barang</h1>
     <p><a href="dashboard.php">Kembali ke Dashboard</a> | <a href="tambah_barang.php">Tambah Barang</a></p>

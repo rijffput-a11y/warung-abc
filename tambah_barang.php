@@ -1,7 +1,9 @@
 <?php include 'includes/cek_session.php'; ?>
 <!DOCTYPE html>
 <html>
-<head><title>Tambah Barang - Warung ABC</title></head>
+<head>
+    <title>Tambah Barang - Warung ABC</title>
+</head>
 <body>
     <h1>Tambah Barang</h1>
     <form action="proses_tambah_barang.php" method="POST">
