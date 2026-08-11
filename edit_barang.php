@@ -9,7 +9,8 @@ $data = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
+    <link rel="stylesheet" href="style.css"> 
     <title>Edit Barang - Warung ABC</title>
 </head>
 <body>

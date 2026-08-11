@@ -1,0 +1,214 @@
+/* ==========================================================================
+   1. IMPORT FONT & GLOBAL RESET
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* PALETA WARNA: HITAM, PUTIH, BIRU */
+:root {
+    --bg-body: #f4f7fb;          /* Background abu-abu terang netral */
+    --bg-white: #ffffff;         /* Putih bersih */
+    --text-black: #000000;       /* Hitam pekat untuk teks utama/judul */
+    --text-muted: #475569;       /* Hitam keabu-abuan untuk teks sekunder */
+    --blue-primary: #2563eb;     /* Biru utama (Royal Blue) */
+    --blue-hover: #1d4ed8;       /* Biru gelap saat di-hover */
+    --blue-light: #eff6ff;       /* Biru sangat muda untuk highlight */
+    --border-color: #cbd5e1;     /* Border abu-abu halus */
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    --radius: 12px;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. ATUR TEKS & JUDUL DENGAN RAPI (HITAM & BIRU)
+   ========================================================================== */
+h1, h2, h3, .title {
+    color: var(--text-black) !important;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.25rem; }
+
+/* Teks keterangan ("Anda login sebagai: admin") */
+p, span, label {
+    color: var(--text-muted) !important;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* ==========================================================================
+   3. MENU UL / LI DIBUAT JADI KOTAK / CARD (HITAM, PUTIH, BIRU)
+   ========================================================================== */
+ul, ol {
+    list-style: none !important; /* Menghilangkan titik bullet */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+    padding: 0;
+}
+
+ul li {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease-in-out;
+}
+
+/* Efek saat kursor diarahkan ke kotak menu */
+ul li:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-primary);
+    box-shadow: var(--shadow);
+    background-color: var(--blue-light);
+}
+
+/* Teks didalam Kotak Menu */
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text-black);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    text-align: center;
+    height: 100%;
+    transition: color 0.2s ease;
+}
+
+/* Saat kotak di-hover, teks berubah jadi warna Biru */
+ul li:hover a {
+    color: var(--blue-primary);
+}
+
+/* ==========================================================================
+   4. TOMBOL / BUTTON (BIRU & PUTIH)
+   ========================================================================== */
+button, 
+input[type="submit"], 
+.btn {
+    background-color: var(--blue-primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, 
+input[type="submit"]:hover, 
+.btn:hover {
+    background-color: var(--blue-hover) !important;
+    transform: translateY(-2px);
+}
+
+/* Link biasa / Tombol Logout */
+a {
+    color: var(--blue-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--blue-hover);
+    text-decoration: underline;
+}
+
+/* Khusus tombol/link Logout di bagian bawah */
+a[href*="logout"], 
+ul li:last-child a[href*="logout"] {
+    color: #dc2626 !important; /* Warna merah agar pembeda navigasi keluar */
+}
+
+/* ==========================================================================
+   5. STYLING TABEL & FORM (HITAM, PUTIH, BIRU)
+   ========================================================================== */
+table {
+    width: 100%;
+    max-width: 850px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+th {
+    background-color: var(--text-black) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 18px;
+    text-align: left;
+}
+
+td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-black);
+    font-size: 0.9rem;
+}
+
+tr:hover td {
+    background-color: var(--blue-light);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-black);
+    background-color: var(--bg-white);
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
