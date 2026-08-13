@@ -30,6 +30,7 @@ $detail = mysqli_query($koneksi, $sql_detail);
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Struk Transaksi - Warung ABC</title>
 </head>
 

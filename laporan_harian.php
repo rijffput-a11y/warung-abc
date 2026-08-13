@@ -24,6 +24,7 @@ $total_harian = 0;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Laporan Harian - Warung ABC</title>
 </head>
 <body>

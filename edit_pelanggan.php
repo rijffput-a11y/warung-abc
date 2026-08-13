@@ -13,6 +13,7 @@ $data = mysqli_fetch_assoc($hasil);
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Edit Pelanggan - Warung ABC</title>
 </head>
 <body>

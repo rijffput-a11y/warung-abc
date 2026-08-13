@@ -10,6 +10,7 @@ $hasil = mysqli_query($koneksi, $sql);
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Data Pelanggan - Warung ABC</title>
 </head>
 <body>

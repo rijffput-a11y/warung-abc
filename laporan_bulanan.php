@@ -25,6 +25,7 @@ $jumlah_transaksi = 0;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Laporan Bulanan - Warung ABC</title>
 </head>
 <body>

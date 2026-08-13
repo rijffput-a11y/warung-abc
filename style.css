@@ -1,214 +1,213 @@
-/* ==========================================================================
-   1. IMPORT FONT & GLOBAL RESET
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* ==============================
+   RESET DASAR
+============================== */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* PALETA WARNA: HITAM, PUTIH, BIRU */
-:root {
-    --bg-body: #f4f7fb;          /* Background abu-abu terang netral */
-    --bg-white: #ffffff;         /* Putih bersih */
-    --text-black: #000000;       /* Hitam pekat untuk teks utama/judul */
-    --text-muted: #475569;       /* Hitam keabu-abuan untuk teks sekunder */
-    --blue-primary: #2563eb;     /* Biru utama (Royal Blue) */
-    --blue-hover: #1d4ed8;       /* Biru gelap saat di-hover */
-    --blue-light: #eff6ff;       /* Biru sangat muda untuk highlight */
-    --border-color: #cbd5e1;     /* Border abu-abu halus */
-    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-    --radius: 12px;
 }
 
 body {
-    background-color: var(--bg-body);
-    color: var(--text-black);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 20px;
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    padding: 30px;
 }
 
-/* ==========================================================================
-   2. ATUR TEKS & JUDUL DENGAN RAPI (HITAM & BIRU)
-   ========================================================================== */
-h1, h2, h3, .title {
-    color: var(--text-black) !important;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
+/* ==============================
+   CONTAINER
+============================== */
+
+body > h1,
+body > h3,
+body > p,
+body > form,
+body > table {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.25rem; }
-
-/* Teks keterangan ("Anda login sebagai: admin") */
-p, span, label {
-    color: var(--text-muted) !important;
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 28px;
+h1 {
+    background: #000000;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 81, 255, 0.2);
 }
 
-/* ==========================================================================
-   3. MENU UL / LI DIBUAT JADI KOTAK / CARD (HITAM, PUTIH, BIRU)
-   ========================================================================== */
-ul, ol {
-    list-style: none !important; /* Menghilangkan titik bullet */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto 20px auto;
-    padding: 0;
+h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #0f0f0f;
 }
 
-ul li {
-    background: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
-    transition: all 0.25s ease-in-out;
-}
+/* ==============================
+   LINK
+============================== */
 
-/* Efek saat kursor diarahkan ke kotak menu */
-ul li:hover {
-    transform: translateY(-4px);
-    border-color: var(--blue-primary);
-    box-shadow: var(--shadow);
-    background-color: var(--blue-light);
-}
-
-/* Teks didalam Kotak Menu */
-ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: var(--text-black);
-    font-weight: 600;
-    font-size: 1.05rem;
-    text-decoration: none;
-    text-align: center;
-    height: 100%;
-    transition: color 0.2s ease;
-}
-
-/* Saat kotak di-hover, teks berubah jadi warna Biru */
-ul li:hover a {
-    color: var(--blue-primary);
-}
-
-/* ==========================================================================
-   4. TOMBOL / BUTTON (BIRU & PUTIH)
-   ========================================================================== */
-button, 
-input[type="submit"], 
-.btn {
-    background-color: var(--blue-primary) !important;
-    color: #ffffff !important;
-    border: none !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 0.95rem !important;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    display: inline-block;
-    text-decoration: none;
-}
-
-button:hover, 
-input[type="submit"]:hover, 
-.btn:hover {
-    background-color: var(--blue-hover) !important;
-    transform: translateY(-2px);
-}
-
-/* Link biasa / Tombol Logout */
 a {
-    color: var(--blue-primary);
+    color: #006eff;
     text-decoration: none;
     font-weight: 600;
 }
 
 a:hover {
-    color: var(--blue-hover);
+    color: #000000;
     text-decoration: underline;
 }
 
-/* Khusus tombol/link Logout di bagian bawah */
-a[href*="logout"], 
-ul li:last-child a[href*="logout"] {
-    color: #dc2626 !important; /* Warna merah agar pembeda navigasi keluar */
+/* ==============================
+   FORM
+============================== */
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* ==========================================================================
-   5. STYLING TABEL & FORM (HITAM, PUTIH, BIRU)
-   ========================================================================== */
+select,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="month"] {
+    padding: 3px 12px;
+    border: 1px solid #272525;
+    border-radius: 2px;
+    outline: none;
+    font-size: 12px;
+    margin: 5px;
+    background: white;
+}
+
+select:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+}
+
+/* ==============================
+   BUTTON
+============================== */
+
+input[type="submit"],
+button {
+    border: none;
+    background: #000000;
+    color: white;
+    padding: 10px 60px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: #004e9c;
+    transform: translateY(-1px);
+}
+
+/* ==============================
+   TABLE
+============================== */
+
 table {
     width: 100%;
-    max-width: 850px;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: var(--bg-white);
-    border-radius: var(--radius);
+    border-collapse: collapse;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    margin-top: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
 th {
-    background-color: var(--text-black) !important;
-    color: #ffffff !important;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 14px 18px;
-    text-align: left;
+    background: #63aafc;
+    color: rgb(0, 0, 0);
+    padding: 13px 10px;
+    text-align: center;
 }
 
 td {
-    padding: 16px 18px;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-black);
-    font-size: 0.9rem;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e8ebef;
+    text-align: center;
 }
 
 tr:hover td {
-    background-color: var(--blue-light);
+    background: #f2f7ff;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    color: var(--text-black);
-    background-color: var(--bg-white);
-    transition: all 0.2s ease;
+/* ==============================
+   PESAN ERROR
+============================== */
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--blue-primary);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+p:first-of-type {
+    line-height: 1.6;
+}
+
+/* ==============================
+   LINK KEMBALI
+============================== */
+
+p a {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* ==============================
+   RESPONSIVE HP
+============================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+        padding: 16px;
+    }
+
+    table {
+        font-size: 13px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="month"] {
+        width: 100%;
+        margin: 5px 0 10px;
+    }
+
+    input[type="submit"],
+    button {
+        width: 100%;
+        margin-top: 5px;
+    }
 }
