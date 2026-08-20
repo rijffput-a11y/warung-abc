@@ -1,38 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="style.css">
-    <title>Login - Warung ABC</title>
-</head>
-<body>
-    <h1>Login Aplikasi Kasir Warung ABC</h1>
+<?php
+session_start();
+include 'config/koneksi.php';
 
-    <?php
-    session_start();
-    if (isset($_SESSION['pesan_error'])) {
-        echo '<p>' . $_SESSION['pesan_error'] . '</p>';
-        unset($_SESSION['pesan_error']);
+if (isset($_SESSION['id_user'])) {
+    header("Location: dashboard.php");
+    exit;
+}
+
+$error = "";
+
+if (isset($_POST['login'])) {
+
+    $username = trim($_POST['username']);
+    $password = $_POST['password'];
+
+    if ($username == "" || $password == "") {
+        $error = "Username dan password wajib diisi!";
+    } else {
+
+        $username = mysqli_real_escape_string($koneksi, $username);
+
+        $sql = "SELECT * FROM tbl_user 
+                WHERE username = '$username' 
+                LIMIT 1";
+
+        $query = mysqli_query($koneksi, $sql);
+
+        if ($query && mysqli_num_rows($query) > 0) {
+
+            $user = mysqli_fetch_assoc($query);
+
+            if (password_verify($password, $user['password']) || $password === $user['password']) {
+
+                $_SESSION['id_user'] = $user['id_user'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['nama_lengkap'] = $user['nama_lengkap'];
+
+                // Mencegah Undefined array key "level"
+                $_SESSION['level'] = $user['level'] ?? 'admin';
+
+                header("Location: dashboard.php");
+                exit;
+
+            } else {
+                $error = "Password salah!";
+            }
+
+        } else {
+            $error = "Username tidak ditemukan!";
+        }
     }
-    ?>
+}
+?>
 
-    <form action="proses_login.php" method="POST">
-        <table>
-            <tr>
-                <td>Username</td>
-                <td>:</td>
-                <td><input type="text" name="username" required></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td><input type="password" name="password" required></td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <input type="submit" value="Login">
-                </td>
-            </tr>
-        </table>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Warung ABC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+<div class="login-box">
+
+    <h1>Warung ABC</h1>
+    <p>Silakan login untuk melanjutkan</p>
+
+    <?php if ($error != ""): ?>
+        <div class="alert error">
+            <?php echo htmlspecialchars($error); ?>
+        </div>
+    <?php endif; ?>
+
+    <form method="POST">
+
+        <label>Username</label>
+        <input 
+            type="text" 
+            name="username" 
+            placeholder="Masukkan username"
+            required
+        >
+
+        <label>Password</label>
+        <input 
+            type="password" 
+            name="password" 
+            placeholder="Masukkan password"
+            required
+        >
+
+        <button type="submit" name="login">
+            Login
+        </button>
+
     </form>
+
+</div>
+
 </body>
 </html>

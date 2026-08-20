@@ -1,213 +1,572 @@
-/* ==============================
-   RESET DASAR
-============================== */
+/* =========================================================
+   WARUNG ABC
+   GOLD & WHITE THEME
+   ========================================================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f9;
-    color: #333;
+    background: #f7f7f7;
+    color: #111111;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* LOGO */
+
+.logo {
+    background: #d4af37;
+    color: #111111;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 25px 15px;
+    letter-spacing: 1px;
+}
+
+
+/* USER */
+
+.user-box {
+    padding: 20px;
+    text-align: center;
+    background: #fffdf5;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.user-box strong {
+    display: block;
+    color: #111111;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.user-box small {
+    display: inline-block;
+    background: #d4af37;
+    color: #111111;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar nav {
+    padding: 15px 10px;
+}
+
+.sidebar nav a {
+    display: block;
+    text-decoration: none;
+    color: #222222;
+    padding: 13px 15px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+
+/* HOVER */
+
+.sidebar nav a:hover {
+    background: #f5e7b2;
+    color: #111111;
+}
+
+
+/* ACTIVE */
+
+.sidebar nav a.active {
+    background: #d4af37;
+    color: #111111;
+    font-weight: bold;
+}
+
+
+/* LOGOUT */
+
+.sidebar nav a.logout {
+    margin-top: 20px;
+    border-top: 1px solid #eeeeee;
+    border-radius: 8px;
+}
+
+.sidebar nav a.logout:hover {
+    background: #111111;
+    color: #ffffff;
+}
+
+
+/* MENU TITLE */
+
+.menu-title {
+    color: #a88920;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 20px 15px 8px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+    width: calc(100% - 250px);
+    margin-left: 250px;
     padding: 30px;
 }
 
-/* ==============================
-   CONTAINER
-============================== */
 
-body > h1,
-body > h3,
-body > p,
-body > form,
-body > table {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
+/* =========================================================
+   TOPBAR
+   ========================================================= */
 
-h1 {
-    background: #000000;
-    color: white;
-    padding: 20px 25px;
+.topbar {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
     border-radius: 12px;
+    padding: 22px 25px;
     margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0, 81, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
-h3 {
-    margin-top: 25px;
-    margin-bottom: 12px;
-    color: #0f0f0f;
+.topbar h1 {
+    font-size: 28px;
+    color: #111111;
+    margin-bottom: 7px;
 }
 
-/* ==============================
-   LINK
-============================== */
-
-a {
-    color: #006eff;
-    text-decoration: none;
-    font-weight: 600;
+.topbar p {
+    color: #666666;
+    font-size: 14px;
 }
 
-a:hover {
-    color: #000000;
-    text-decoration: underline;
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
 }
 
-/* ==============================
-   FORM
-============================== */
 
-form {
-    background: white;
-    padding: 20px;
+.card {
+    background: #ffffff;
     border-radius: 12px;
+    padding: 22px;
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* GOLD STRIPE */
+
+.card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: #d4af37;
+}
+
+
+.card span {
+    display: block;
+    color: #666666;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+
+.card strong {
+    display: block;
+    color: #111111;
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   SEMUA CARD MENJADI EMAS + PUTIH
+   ========================================================= */
+
+.card.blue,
+.card.green,
+.card.orange,
+.card.purple {
+    background: #ffffff;
+}
+
+
+/* ICON */
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #f5e7b2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.panel {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+.panel h2 {
+    color: #111111;
+    font-size: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+    border-bottom: 2px solid #d4af37;
 }
 
-select,
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="month"] {
-    padding: 3px 12px;
-    border: 1px solid #272525;
-    border-radius: 2px;
-    outline: none;
-    font-size: 12px;
-    margin: 5px;
-    background: white;
+
+.panel p {
+    color: #555555;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
-select:focus,
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+
+/* =========================================================
+   QUICK MENU
+   ========================================================= */
+
+.quick-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
 
-/* ==============================
-   BUTTON
-============================== */
 
-input[type="submit"],
-button {
-    border: none;
-    background: #000000;
-    color: white;
-    padding: 10px 60px;
-    border-radius: 20px;
-    cursor: pointer;
+.quick-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    background: #fffdf5;
+    border: 1px solid #eadca9;
+    color: #111111;
+    padding: 15px;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+
+.quick-menu a:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #111111;
+    transform: translateY(-2px);
+}
+
+
+.quick-menu a:first-letter {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-box {
+    width: 400px;
+    max-width: 90%;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+.login-box h1 {
+    text-align: center;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+
+.login-box > p {
+    text-align: center;
+    color: #777777;
+    margin-bottom: 25px;
+}
+
+
+.login-box label {
+    display: block;
+    color: #222222;
     font-weight: bold;
-    transition: 0.2s;
+    margin-bottom: 7px;
+    margin-top: 15px;
 }
 
-input[type="submit"]:hover,
-button:hover {
-    background: #004e9c;
-    transform: translateY(-1px);
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
 }
 
-/* ==============================
+
+.login-box input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+
+.login-box button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #d4af37;
+    color: #111111;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.login-box button:hover {
+    background: #b99625;
+}
+
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.alert {
+    padding: 12px 15px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+
+.alert.error {
+    background: #fff0f0;
+    color: #9b0000;
+    border: 1px solid #f0b5b5;
+}
+
+
+/* =========================================================
    TABLE
-============================== */
+   ========================================================= */
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
 }
 
-th {
-    background: #63aafc;
-    color: rgb(0, 0, 0);
-    padding: 13px 10px;
-    text-align: center;
+
+table th {
+    background: #d4af37;
+    color: #111111;
+    padding: 12px;
+    text-align: left;
 }
 
-td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #e8ebef;
-    text-align: center;
+
+table td {
+    padding: 11px;
+    border-bottom: 1px solid #eeeeee;
+    color: #222222;
 }
 
-tr:hover td {
-    background: #f2f7ff;
+
+table tr:hover td {
+    background: #fffdf5;
 }
 
-/* ==============================
-   PESAN ERROR
-============================== */
 
-p {
-    margin-top: 15px;
-    margin-bottom: 15px;
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+button,
+input[type="submit"] {
+    background: #d4af37;
+    color: #111111;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-p:first-of-type {
-    line-height: 1.6;
+
+button:hover,
+input[type="submit"]:hover {
+    background: #b99625;
 }
 
-/* ==============================
-   LINK KEMBALI
-============================== */
 
-p a {
-    display: inline-block;
-    margin-top: 5px;
+/* =========================================================
+   LINK
+   ========================================================= */
+
+a {
+    color: #a07d16;
 }
 
-/* ==============================
-   RESPONSIVE HP
-============================== */
+
+a:hover {
+    color: #7b5d00;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 
 @media (max-width: 700px) {
 
-    body {
-        padding: 15px;
+    .sidebar {
+        width: 210px;
     }
 
-    h1 {
-        font-size: 22px;
-        padding: 16px;
+    .content {
+        width: calc(100% - 210px);
+        margin-left: 210px;
+        padding: 20px;
     }
 
-    table {
-        font-size: 13px;
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-menu {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .layout {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
     }
 
-    form {
-        padding: 15px;
-    }
-
-    select,
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    input[type="month"] {
-        width: 100%;
-        margin: 5px 0 10px;
-    }
-
-    input[type="submit"],
-    button {
-        width: 100%;
-        margin-top: 5px;
-    }
 }
