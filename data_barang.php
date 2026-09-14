@@ -1,18 +1,16 @@
 <?php
+// data_barang.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
-$sql = "SELECT * FROM tbl_barang ORDER BY nama_barang ASC";
+$sql   = "SELECT * FROM tbl_barang ORDER BY nama_barang ASC";
 $hasil = mysqli_query($koneksi, $sql);
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="style.css">
-    <title>Data Barang - Warung ABC</title>
-</head>
+<head><title>Data Barang - Warung ABC</title></head>
 <body>
-    <h1>Data Barang</h1>
+    <h2>Data Barang</h2>
     <p><a href="dashboard.php">Kembali ke Dashboard</a> | <a href="tambah_barang.php">Tambah Barang</a></p>
     <table border="1" cellpadding="6">
         <tr>
@@ -28,7 +26,7 @@ $hasil = mysqli_query($koneksi, $sql);
             <td><?php echo $row['tanggal_kadaluarsa']; ?></td>
             <td>
                 <a href="edit_barang.php?id=<?php echo $row['id_barang']; ?>">Edit</a> | 
-                <a href="hapus_barang.php?id=<?php echo $row['id_barang']; ?>" onclick="return confirm('Yakin hapus barang ini?')">Hapus</a>
+                <a href="hapus_barang.php?id=<?php echo $row['id_barang']; ?>" onclick="return confirm('Yakin hapus barang ini?');">Hapus</a>
             </td>
         </tr>
         <?php } ?>
