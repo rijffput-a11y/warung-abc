@@ -1,15 +1,21 @@
+<?php
+// login.php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login - Warung ABC</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Login Aplikasi Kasir Warung ABC</h1>
+    <h2>Login Warung ABC</h2>
 
     <?php
-    session_start();
     if (isset($_SESSION['pesan_error'])) {
-        echo '<p>' . $_SESSION['pesan_error'] . '</p>';
+        echo "<p style='color:red;'>" . $_SESSION['pesan_error'] . "</p>";
         unset($_SESSION['pesan_error']);
     }
     ?>
@@ -18,18 +24,14 @@
         <table>
             <tr>
                 <td>Username</td>
-                <td>:</td>
                 <td><input type="text" name="username" required></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td>:</td>
                 <td><input type="password" name="password" required></td>
             </tr>
             <tr>
-                <td colspan="3">
-                    <input type="submit" value="Login">
-                </td>
+                <td colspan="2"><input type="submit" value="Login"></td>
             </tr>
         </table>
     </form>
