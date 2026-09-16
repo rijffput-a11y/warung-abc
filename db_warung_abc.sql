@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Jul 2026 pada 03.37
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Waktu pembuatan: 16 Sep 2026 pada 03.42
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_barang` (
   `id_barang` int(11) NOT NULL,
-  `kode_barang` varchar(20) NOT NULL,
+  `kode_barang` varchar(50) NOT NULL,
   `nama_barang` varchar(100) NOT NULL,
-  `harga_satuan` decimal(12,2) NOT NULL,
-  `stok` int(11) NOT NULL,
-  `tanggal_kadaluarsa` date NOT NULL
+  `harga_satuan` decimal(10,2) NOT NULL,
+  `stok` int(11) NOT NULL DEFAULT 0,
+  `tanggal_kadaluarsa` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,7 +47,7 @@ CREATE TABLE `tbl_detail_transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `subtotal` decimal(12,2) NOT NULL
+  `subtotal` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -63,16 +63,6 @@ CREATE TABLE `tbl_log` (
   `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `tbl_log`
---
-
-INSERT INTO `tbl_log` (`id_log`, `id_user`, `aktivitas`, `waktu`) VALUES
-(1, 1, 'login', '2026-07-28 07:30:36'),
-(2, 1, 'logout', '2026-07-28 07:30:45'),
-(3, 1, 'login', '2026-07-30 03:07:59'),
-(4, 1, 'logout', '2026-07-30 03:09:50');
-
 -- --------------------------------------------------------
 
 --
@@ -82,8 +72,8 @@ INSERT INTO `tbl_log` (`id_log`, `id_user`, `aktivitas`, `waktu`) VALUES
 CREATE TABLE `tbl_pelanggan` (
   `id_pelanggan` int(11) NOT NULL,
   `nama_pelanggan` varchar(100) NOT NULL,
-  `no_hp` varchar(20) NOT NULL,
-  `alamat` varchar(255) NOT NULL
+  `no_hp` varchar(20) DEFAULT NULL,
+  `alamat` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -94,11 +84,11 @@ CREATE TABLE `tbl_pelanggan` (
 
 CREATE TABLE `tbl_transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `no_transaksi` varchar(30) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_pelanggan` int(11) DEFAULT NULL,
+  `no_transaksi` varchar(50) NOT NULL,
   `tanggal` datetime NOT NULL,
-  `id_kasir` int(11) NOT NULL,
-  `id_pelanggan` int(11) NOT NULL,
-  `total_bayar` decimal(12,2) NOT NULL
+  `total_bayar` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -112,15 +102,8 @@ CREATE TABLE `tbl_user` (
   `nama_lengkap` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','kasir','gudang','') NOT NULL
+  `role` enum('admin','kasir','gudang') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tbl_user`
---
-
-INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `role`) VALUES
-(1, 'Administrator', 'admin', '$2y$10$GqezIia0ehQ8VC2nTAD.de/QrokvamTCgXJn5fBBFOyIxJy5HLwOe', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +113,8 @@ INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `role
 -- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  ADD PRIMARY KEY (`id_barang`);
+  ADD PRIMARY KEY (`id_barang`),
+  ADD UNIQUE KEY `kode_barang` (`kode_barang`);
 
 --
 -- Indeks untuk tabel `tbl_detail_transaksi`
@@ -158,13 +142,15 @@ ALTER TABLE `tbl_pelanggan`
 --
 ALTER TABLE `tbl_transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
+  ADD KEY `id_user` (`id_user`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
 -- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -186,7 +172,7 @@ ALTER TABLE `tbl_detail_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
@@ -204,7 +190,7 @@ ALTER TABLE `tbl_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -214,20 +200,21 @@ ALTER TABLE `tbl_user`
 -- Ketidakleluasaan untuk tabel `tbl_detail_transaksi`
 --
 ALTER TABLE `tbl_detail_transaksi`
-  ADD CONSTRAINT `tbl_detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `tbl_transaksi` (`id_transaksi`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tbl_detail_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `tbl_barang` (`id_barang`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_detail_barang` FOREIGN KEY (`id_barang`) REFERENCES `tbl_barang` (`id_barang`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_detail_transaksi` FOREIGN KEY (`id_transaksi`) REFERENCES `tbl_transaksi` (`id_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
-  ADD CONSTRAINT `tbl_log_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_log_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  ADD CONSTRAINT `tbl_transaksi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tbl_pelanggan` (`id_pelanggan`);
+  ADD CONSTRAINT `fk_transaksi_pelanggan` FOREIGN KEY (`id_pelanggan`) REFERENCES `tbl_pelanggan` (`id_pelanggan`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_transaksi_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
