@@ -20,14 +20,10 @@ $detail = mysqli_query($koneksi, $sql_detail);
 ?>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
     <title>Struk Transaksi - Warung ABC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-=======
-<head><title>Struk Transaksi - Warung ABC</title></head>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 <body>
     <h2>Warung ABC</h2>
     <p>
@@ -36,16 +32,11 @@ $detail = mysqli_query($koneksi, $sql_detail);
         Kasir: <?php echo $transaksi['nama_kasir']; ?><br>
         Pelanggan: <?php echo $transaksi['nama_pelanggan'] ? $transaksi['nama_pelanggan'] : 'Umum'; ?>
     </p>
-<<<<<<< HEAD
     <table>
-=======
-    <table border="1" cellpadding="6">
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
         <tr><th>Barang</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th></tr>
         <?php while ($item = mysqli_fetch_assoc($detail)) { ?>
         <tr>
             <td><?php echo $item['nama_barang']; ?></td>
-<<<<<<< HEAD
             <td>Rp <?php echo number_format($item['harga_satuan'], 0, ',', '.'); ?></td>
             <td><?php echo $item['jumlah']; ?></td>
             <td>Rp <?php echo number_format($item['subtotal'], 0, ',', '.'); ?></td>
@@ -54,16 +45,6 @@ $detail = mysqli_query($koneksi, $sql_detail);
         <tr>
             <td colspan="3"><strong>Total Bayar</strong></td>
             <td><strong>Rp <?php echo number_format($transaksi['total_bayar'], 0, ',', '.'); ?></strong></td>
-=======
-            <td><?php echo number_format($item['harga_satuan'], 0, ',', '.'); ?></td>
-            <td><?php echo $item['jumlah']; ?></td>
-            <td><?php echo number_format($item['subtotal'], 0, ',', '.'); ?></td>
-        </tr>
-        <?php } ?>
-        <tr>
-            <td colspan="3">Total Bayar</td>
-            <td><?php echo number_format($transaksi['total_bayar'], 0, ',', '.'); ?></td>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
         </tr>
     </table>
     <p>

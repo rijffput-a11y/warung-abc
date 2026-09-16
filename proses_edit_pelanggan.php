@@ -1,9 +1,5 @@
 <?php
 // proses_edit_pelanggan.php
-<<<<<<< HEAD
-=======
-session_start();
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -17,17 +13,11 @@ $sql = "UPDATE tbl_pelanggan SET nama_pelanggan = '$nama', no_hp = '$hp', alamat
 if (mysqli_query($koneksi, $sql)) {
     $id_user   = $_SESSION['id_user'];
     $waktu     = date('Y-m-d H:i:s');
-    $aktivitas = "Edit pelanggan: {$nama}";
-    $log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', '$aktivitas', '$waktu')";
+    $log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'Edit pelanggan: {$nama}', '$waktu')";
     mysqli_query($koneksi, $log);
 
     header('Location: data_pelanggan.php');
     exit;
 } else {
-    echo "Gagal mengubah data: " . mysqli_error($koneksi);
-<<<<<<< HEAD
+    echo "Gagal mengubah: " . mysqli_error($koneksi);
 }
-=======
-}
-?>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

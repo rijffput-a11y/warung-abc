@@ -1,9 +1,5 @@
 <?php
 // proses_simpan_transaksi.php
-<<<<<<< HEAD
-=======
-session_start();
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -43,17 +39,11 @@ foreach ($_SESSION['keranjang'] as $id_barang => $item) {
     mysqli_query($koneksi, $update_stok);
 }
 
-$waktu     = date('Y-m-d H:i:s');
-$aktivitas = "Transaksi: {$no_transaksi}";
-$log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_kasir', '$aktivitas', '$waktu')";
+$waktu = date('Y-m-d H:i:s');
+$log   = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_kasir', 'Transaksi: {$no_transaksi}', '$waktu')";
 mysqli_query($koneksi, $log);
 
 unset($_SESSION['keranjang']);
 
 header('Location: riwayat_transaksi.php');
-<<<<<<< HEAD
 exit;
-=======
-exit;
-?>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

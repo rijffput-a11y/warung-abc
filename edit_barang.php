@@ -10,43 +10,20 @@ $data  = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
     <title>Edit Barang - Warung ABC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-=======
-<head><title>Edit Barang - Warung ABC</title></head>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 <body>
     <h2>Edit Barang</h2>
     <form action="proses_edit_barang.php" method="POST">
         <input type="hidden" name="id_barang" value="<?php echo $data['id_barang']; ?>">
-        <table>
-            <tr>
-                <td>Kode Barang</td>
-                <td><input type="text" name="kode_barang" value="<?php echo $data['kode_barang']; ?>" required></td>
-            </tr>
-            <tr>
-                <td>Nama Barang</td>
-                <td><input type="text" name="nama_barang" value="<?php echo $data['nama_barang']; ?>" required></td>
-            </tr>
-            <tr>
-                <td>Harga Satuan</td>
-                <td><input type="number" name="harga_satuan" step="0.01" value="<?php echo $data['harga_satuan']; ?>" required></td>
-            </tr>
-            <tr>
-                <td>Stok</td>
-                <td><input type="number" name="stok" value="<?php echo $data['stok']; ?>" required></td>
-            </tr>
-            <tr>
-                <td>Tanggal Kadaluarsa</td>
-                <td><input type="date" name="tanggal_kadaluarsa" value="<?php echo $data['tanggal_kadaluarsa']; ?>"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="Update"></td>
-            </tr>
-        </table>
+        Kode Barang: <input type="text" name="kode_barang" value="<?php echo $data['kode_barang']; ?>" required>
+        Nama Barang: <input type="text" name="nama_barang" value="<?php echo $data['nama_barang']; ?>" required>
+        Harga Satuan: <input type="number" name="harga_satuan" step="0.01" value="<?php echo $data['harga_satuan']; ?>" required>
+        Stok: <input type="number" name="stok" value="<?php echo $data['stok']; ?>" required>
+        Tanggal Kadaluarsa: <input type="date" name="tanggal_kadaluarsa" value="<?php echo $data['tanggal_kadaluarsa']; ?>">
+        <input type="submit" value="Update">
     </form>
     <p><a href="data_barang.php">Kembali</a></p>
 </body>

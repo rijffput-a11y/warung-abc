@@ -11,7 +11,7 @@ $sql = "INSERT INTO tbl_user (nama_lengkap, username, password, role)
         VALUES ('$nama', '$username', '$password', '$role')";
 
 if (mysqli_query($koneksi, $sql)) {
-    echo 'User admin berhasil dibuat. Silakan hapus file ini.';
+    echo 'User admin berhasil dibuat. Silakan login.';
 } else {
     echo 'Gagal membuat user: ' . mysqli_error($koneksi);
 }

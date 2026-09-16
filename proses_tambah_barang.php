@@ -1,9 +1,5 @@
 <?php
 // proses_tambah_barang.php
-<<<<<<< HEAD
-=======
-session_start();
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -20,17 +16,11 @@ $sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_satuan, stok, ta
 if (mysqli_query($koneksi, $sql)) {
     $id_user   = $_SESSION['id_user'];
     $waktu     = date('Y-m-d H:i:s');
-    $aktivitas = "Tambah barang: {$nama}";
-    $log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', '$aktivitas', '$waktu')";
+    $log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'Tambah barang: {$nama}', '$waktu')";
     mysqli_query($koneksi, $log);
 
     header('Location: data_barang.php');
     exit;
 } else {
-    echo "Gagal menyimpan data: " . mysqli_error($koneksi);
-<<<<<<< HEAD
+    echo "Gagal menyimpan: " . mysqli_error($koneksi);
 }
-=======
-}
-?>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

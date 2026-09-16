@@ -1,9 +1,5 @@
 <?php
 // transaksi.php
-<<<<<<< HEAD
-=======
-session_start();
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -12,8 +8,7 @@ if (!isset($_SESSION['keranjang'])) {
 }
 
 $daftar_barang   = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE stok > 0");
-$sql_pelanggan   = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";
-$hasil_pelanggan = mysqli_query($koneksi, $sql_pelanggan);
+$hasil_pelanggan = mysqli_query($koneksi, "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC");
 
 $total = 0;
 foreach ($_SESSION['keranjang'] as $item) {
@@ -22,14 +17,10 @@ foreach ($_SESSION['keranjang'] as $item) {
 ?>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
     <title>Transaksi - Warung ABC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-=======
-<head><title>Transaksi - Warung ABC</title></head>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 <body>
     <h2>Transaksi Penjualan</h2>
 
@@ -38,8 +29,8 @@ foreach ($_SESSION['keranjang'] as $item) {
         unset($_SESSION['pesan_error']);
     } ?>
 
-    <h3>Pilih Barang</h3>
     <form action="proses_tambah_keranjang.php" method="POST">
+        Pilih Barang:
         <select name="id_barang" required>
             <option value="">-- Pilih Barang --</option>
             <?php while ($b = mysqli_fetch_assoc($daftar_barang)) { ?>
@@ -52,7 +43,6 @@ foreach ($_SESSION['keranjang'] as $item) {
         <input type="submit" value="Tambah ke Keranjang">
     </form>
 
-<<<<<<< HEAD
     <h3>Keranjang Belanja</h3>
     <table>
         <tr><th>Nama Barang</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th></tr>
@@ -67,27 +57,9 @@ foreach ($_SESSION['keranjang'] as $item) {
         <tr>
             <td colspan="3"><strong>Total Bayar</strong></td>
             <td><strong>Rp <?php echo number_format($total, 0, ',', '.'); ?></strong></td>
-=======
-    <h3>Keranjang</h3>
-    <table border="1" cellpadding="6">
-        <tr><th>Nama Barang</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr>
-        <?php foreach ($_SESSION['keranjang'] as $id_barang => $item) { ?>
-        <tr>
-            <td><?php echo $item['nama_barang']; ?></td>
-            <td><?php echo number_format($item['harga_satuan'], 0, ',', '.'); ?></td>
-            <td><?php echo $item['jumlah']; ?></td>
-            <td><?php echo number_format($item['subtotal'], 0, ',', '.'); ?></td>
-            <td><a href="hapus_keranjang.php?id=<?php echo $id_barang; ?>">Hapus</a></td>
-        </tr>
-        <?php } ?>
-        <tr>
-            <td colspan="3">Total</td>
-            <td colspan="2"><?php echo number_format($total, 0, ',', '.'); ?></td>
->>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
         </tr>
     </table>
 
-    <br>
     <form action="proses_simpan_transaksi.php" method="POST">
         Pelanggan:
         <select name="id_pelanggan">
