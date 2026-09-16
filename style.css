@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Style Baru - Modern & Elegan Warung ABC */
 * {
     box-sizing: border-box;
@@ -170,3 +171,40 @@ p[style*="color:red;"] {
     table { box-shadow: none; border: 1px solid #cbd5e1; }
     th { background: #f1f5f9 !important; color: #000 !important; }
 }
+=======
+/* style.css - Ringkas & Elegan */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body { background: #f4f6f9; color: #333; padding: 25px; line-height: 1.5; }
+
+/* Judul & Link */
+h1, h2, h3 { color: #1e293b; margin-bottom: 12px; }
+a { color: #2563eb; text-decoration: none; font-weight: 500; }
+a:hover { text-decoration: underline; }
+
+/* Menu Navigasi Dashboard */
+ul { list-style: none; margin-bottom: 20px; }
+ul li { background: #fff; padding: 10px 16px; margin-bottom: 8px; border-radius: 6px; width: fit-content; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+/* Form & Input */
+form { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); margin-bottom: 20px; }
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="month"], select {
+    width: 100%; padding: 8px 10px; margin: 6px 0 14px; border: 1px solid #cbd5e1; border-radius: 5px; outline: none;
+}
+input:focus, select:focus { border-color: #2563eb; }
+
+/* Tombol */
+input[type="submit"], button {
+    background: #2563eb; color: #fff; border: none; padding: 9px 16px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: 0.2s;
+}
+input[type="submit"]:hover, button:hover { background: #1d4ed8; }
+
+/* Tabel Data */
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.06); margin-bottom: 20px; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #f1f5f9; }
+th { background: #0f172a; color: #fff; font-weight: 600; }
+tr:hover { background: #f8fafc; }
+
+/* Pesan Error & Cetak Struk */
+p[style*="color:red;"] { background: #fee2e2; color: #991b1b !important; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+@media print { button, a { display: none !important; } table { box-shadow: none; border: 1px solid #000; } }
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

@@ -10,10 +10,14 @@ $data  = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
     <title>Edit Pelanggan - Warung ABC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+=======
+<head><title>Edit Pelanggan - Warung ABC</title></head>
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 <body>
     <h2>Edit Pelanggan</h2>
     <form action="proses_edit_pelanggan.php" method="POST">

@@ -1,5 +1,9 @@
 <?php
 // proses_tambah_keranjang.php
+<<<<<<< HEAD
+=======
+session_start();
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -28,4 +32,9 @@ if ($barang && $jumlah > 0 && $jumlah <= $barang['stok']) {
 }
 
 header('Location: transaksi.php');
+<<<<<<< HEAD
 exit;
+=======
+exit;
+?>
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

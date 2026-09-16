@@ -1,5 +1,9 @@
 <?php
 // hapus_pelanggan.php
+<<<<<<< HEAD
+=======
+session_start();
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -19,4 +23,9 @@ if (mysqli_query($koneksi, $sql)) {
 
     header('Location: data_pelanggan.php');
     exit;
+<<<<<<< HEAD
 }
+=======
+}
+?>
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502

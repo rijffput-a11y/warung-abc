@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 // tambah_barang.php
 include 'includes/cek_session.php'; 
@@ -8,6 +9,13 @@ include 'includes/cek_session.php';
     <title>Tambah Barang - Warung ABC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+=======
+<!-- tambah_barang.php -->
+<?php include 'includes/cek_session.php'; ?>
+<!DOCTYPE html>
+<html>
+<head><title>Tambah Barang - Warung ABC</title></head>
+>>>>>>> d28c6cc0a801a4f3f5014f87350c57c95b381502
 <body>
     <h2>Tambah Barang</h2>
     <form action="proses_tambah_barang.php" method="POST">
