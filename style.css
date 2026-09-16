@@ -1,29 +1,38 @@
-/* style.css */
+/* style.css - Full Code (Emas & Putih Elegan) */
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-body { background: #f4f6f9; color: #333; padding: 25px; line-height: 1.5; max-width: 900px; margin: 0 auto; }
+body { background: #faf9f6; color: #3b3626; padding: 25px; max-width: 950px; margin: 0 auto; line-height: 1.5; }
 
-h1, h2, h3 { color: #1e293b; margin-bottom: 12px; }
-a { color: #2563eb; text-decoration: none; font-weight: 500; }
-a:hover { text-decoration: underline; }
+/* Judul & Link */
+h1, h2, h3 { color: #8a7322; margin-bottom: 12px; }
+a { color: #b8972e; text-decoration: none; font-weight: 600; }
+a:hover { color: #735f18; text-decoration: underline; }
 
-ul { list-style: none; margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
-ul li { background: #fff; padding: 8px 14px; border-radius: 5px; border: 1px solid #cbd5e1; }
+/* Layout Cards Dashboard */
+.card-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+.card { background: #ffffff; border: 1px solid #e8e2ce; border-radius: 10px; padding: 20px; flex: 1 1 200px; box-shadow: 0 4px 10px rgba(184,151,46,0.08); text-align: center; }
+.card h3 { margin-bottom: 8px; font-size: 16px; }
+.card p { font-size: 13px; color: #666; margin-bottom: 10px; }
+.card a { display: inline-block; margin-top: 5px; background: #faf9f6; padding: 6px 14px; border-radius: 5px; border: 1px solid #dcd4b8; font-size: 13px; }
 
-form { background: #fff; padding: 20px; border-radius: 8px; max-width: 480px; border: 1px solid #cbd5e1; margin-bottom: 20px; }
+/* Form & Input */
+form { background: #ffffff; padding: 22px; border-radius: 10px; border: 1px solid #eee8d5; max-width: 480px; box-shadow: 0 4px 12px rgba(184,151,46,0.06); margin-bottom: 20px; }
 input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="month"], select {
-    width: 100%; padding: 8px; margin: 6px 0 14px; border: 1px solid #cbd5e1; border-radius: 4px; outline: none;
+    width: 100%; padding: 9px 12px; margin: 6px 0 14px; border: 1px solid #dcd4b8; border-radius: 6px; background: #fffdfa; outline: none;
 }
-input:focus, select:focus { border-color: #2563eb; }
+input:focus, select:focus { border-color: #c9a432; box-shadow: 0 0 5px rgba(201,164,50,0.3); }
 
+/* Tombol Emas */
 input[type="submit"], button {
-    background: #2563eb; color: #fff; border: none; padding: 8px 14px; border-radius: 4px; font-weight: 600; cursor: pointer;
+    background: linear-gradient(135deg, #d4af37, #aa8c2c); color: #ffffff; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s;
 }
-input[type="submit"]:hover, button:hover { background: #1d4ed8; }
+input[type="submit"]:hover, button:hover { background: linear-gradient(135deg, #b8972e, #8a7322); }
 
-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; margin-bottom: 20px; }
-th, td { padding: 10px; text-align: left; border-bottom: 1px solid #f1f5f9; }
-th { background: #0f172a; color: #fff; }
-tr:hover { background: #f8fafc; }
+/* Tabel Data */
+table { width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e8e2ce; box-shadow: 0 2px 8px rgba(0,0,0,0.03); margin-bottom: 20px; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #f4f0e4; }
+th { background: #6d5c29; color: #dfc26a; font-weight: 600; }
+tr:hover { background: #fcfbfa; }
 
-p[style*="color:red;"] { background: #fee2e2; color: #991b1b !important; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+/* Pesan Error & Cetak Struk */
+p[style*="color:red;"] { background: #fff5f5; color: #c53030 !important; padding: 10px 14px; border-radius: 6px; border: 1px solid #feb2b2; margin-bottom: 15px; }
 @media print { button, a { display: none !important; } table { border: 1px solid #000; } }
