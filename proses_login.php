@@ -1,8 +1,5 @@
 <?php
-// proses_login.php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
 include 'config/koneksi.php';
 
 $username = mysqli_real_escape_string($koneksi, $_POST['username']);
@@ -13,7 +10,6 @@ $hasil = mysqli_query($koneksi, $sql);
 
 if ($hasil && mysqli_num_rows($hasil) == 1) {
     $data = mysqli_fetch_assoc($hasil);
-
     if (password_verify($password, $data['password'])) {
         $_SESSION['login']        = true;
         $_SESSION['id_user']      = $data['id_user'];
@@ -22,8 +18,7 @@ if ($hasil && mysqli_num_rows($hasil) == 1) {
 
         $id_user = $data['id_user'];
         $waktu   = date('Y-m-d H:i:s');
-        $log     = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'login', '$waktu')";
-        mysqli_query($koneksi, $log);
+        mysqli_query($koneksi, "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'login', '$waktu')");
 
         header('Location: dashboard.php');
         exit;
@@ -37,3 +32,4 @@ if ($hasil && mysqli_num_rows($hasil) == 1) {
     header('Location: login.php');
     exit;
 }
+?>

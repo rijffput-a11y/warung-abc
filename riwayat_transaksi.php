@@ -1,20 +1,11 @@
 <?php
-// riwayat_transaksi.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
-
-$sql = "SELECT t.id_transaksi, t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_kasir 
-        FROM tbl_transaksi t 
-        JOIN tbl_user u ON t.id_user = u.id_user 
-        ORDER BY t.tanggal DESC";
-$hasil = mysqli_query($koneksi, $sql);
+$hasil = mysqli_query($koneksi, "SELECT t.id_transaksi, t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_kasir FROM tbl_transaksi t JOIN tbl_user u ON t.id_user = u.id_user ORDER BY t.tanggal DESC");
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Riwayat Transaksi - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Riwayat Transaksi</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Riwayat Transaksi</h2>
     <table>
@@ -29,6 +20,6 @@ $hasil = mysqli_query($koneksi, $sql);
         </tr>
         <?php } ?>
     </table>
-    <p><a href="dashboard.php">Kembali ke Dashboard</a></p>
+    <p><a href="dashboard.php">Dashboard</a></p>
 </body>
 </html>

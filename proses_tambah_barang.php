@@ -1,5 +1,4 @@
 <?php
-// proses_tambah_barang.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
@@ -10,17 +9,12 @@ $stok  = $_POST['stok'];
 $exp   = $_POST['tanggal_kadaluarsa'];
 $exp_sql = $exp === "" ? "NULL" : "'$exp'";
 
-$sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_satuan, stok, tanggal_kadaluarsa) 
-        VALUES ('$kode', '$nama', '$harga', '$stok', $exp_sql)";
-
+$sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_satuan, stok, tanggal_kadaluarsa) VALUES ('$kode', '$nama', '$harga', '$stok', $exp_sql)";
 if (mysqli_query($koneksi, $sql)) {
-    $id_user   = $_SESSION['id_user'];
-    $waktu     = date('Y-m-d H:i:s');
-    $log       = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'Tambah barang: {$nama}', '$waktu')";
-    mysqli_query($koneksi, $log);
-
+    $id_user = $_SESSION['id_user'];
+    $waktu   = date('Y-m-d H:i:s');
+    mysqli_query($koneksi, "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', 'Tambah barang: {$nama}', '$waktu')");
     header('Location: data_barang.php');
     exit;
-} else {
-    echo "Gagal menyimpan: " . mysqli_error($koneksi);
-}
+} else { echo "Gagal: " . mysqli_error($koneksi); }
+?>

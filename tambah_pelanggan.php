@@ -1,13 +1,7 @@
-<?php 
-// tambah_pelanggan.php
-include 'includes/cek_session.php'; 
-?>
+<?php include 'includes/cek_session.php'; ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Tambah Pelanggan - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Tambah Pelanggan</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Tambah Pelanggan</h2>
     <form action="proses_tambah_pelanggan.php" method="POST">

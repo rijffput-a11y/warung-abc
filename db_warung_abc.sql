@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Sep 2026 pada 03.42
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.0.25
+-- Waktu pembuatan: 22 Sep 2026 pada 13.17
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -113,8 +113,7 @@ CREATE TABLE `tbl_user` (
 -- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  ADD PRIMARY KEY (`id_barang`),
-  ADD UNIQUE KEY `kode_barang` (`kode_barang`);
+  ADD PRIMARY KEY (`id_barang`);
 
 --
 -- Indeks untuk tabel `tbl_detail_transaksi`
@@ -149,8 +148,7 @@ ALTER TABLE `tbl_transaksi`
 -- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang

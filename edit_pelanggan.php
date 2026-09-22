@@ -1,19 +1,12 @@
 <?php
-// edit_pelanggan.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
-
-$id    = $_GET['id'];
-$sql   = "SELECT * FROM tbl_pelanggan WHERE id_pelanggan = '$id'";
-$hasil = mysqli_query($koneksi, $sql);
-$data  = mysqli_fetch_assoc($hasil);
+$id   = $_GET['id'];
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tbl_pelanggan WHERE id_pelanggan = '$id'"));
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Edit Pelanggan - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Edit Pelanggan</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Edit Pelanggan</h2>
     <form action="proses_edit_pelanggan.php" method="POST">

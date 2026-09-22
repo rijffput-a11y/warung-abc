@@ -1,19 +1,12 @@
 <?php
-// edit_barang.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
-
-$id    = $_GET['id'];
-$sql   = "SELECT * FROM tbl_barang WHERE id_barang = '$id'";
-$hasil = mysqli_query($koneksi, $sql);
-$data  = mysqli_fetch_assoc($hasil);
+$id   = $_GET['id'];
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE id_barang = '$id'"));
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Edit Barang - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Edit Barang</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Edit Barang</h2>
     <form action="proses_edit_barang.php" method="POST">

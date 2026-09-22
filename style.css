@@ -1,38 +1,15 @@
-/* style.css - Full Code (Emas & Putih Elegan) */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-body { background: #faf9f6; color: #3b3626; padding: 25px; max-width: 950px; margin: 0 auto; line-height: 1.5; }
-
-/* Judul & Link */
-h1, h2, h3 { color: #8a7322; margin-bottom: 12px; }
-a { color: #b8972e; text-decoration: none; font-weight: 600; }
-a:hover { color: #735f18; text-decoration: underline; }
-
-/* Layout Cards Dashboard */
-.card-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
-.card { background: #ffffff; border: 1px solid #e8e2ce; border-radius: 10px; padding: 20px; flex: 1 1 200px; box-shadow: 0 4px 10px rgba(184,151,46,0.08); text-align: center; }
-.card h3 { margin-bottom: 8px; font-size: 16px; }
-.card p { font-size: 13px; color: #666; margin-bottom: 10px; }
-.card a { display: inline-block; margin-top: 5px; background: #faf9f6; padding: 6px 14px; border-radius: 5px; border: 1px solid #dcd4b8; font-size: 13px; }
-
-/* Form & Input */
-form { background: #ffffff; padding: 22px; border-radius: 10px; border: 1px solid #eee8d5; max-width: 480px; box-shadow: 0 4px 12px rgba(184,151,46,0.06); margin-bottom: 20px; }
-input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="month"], select {
-    width: 100%; padding: 9px 12px; margin: 6px 0 14px; border: 1px solid #dcd4b8; border-radius: 6px; background: #fffdfa; outline: none;
-}
-input:focus, select:focus { border-color: #c9a432; box-shadow: 0 0 5px rgba(201,164,50,0.3); }
-
-/* Tombol Emas */
-input[type="submit"], button {
-    background: linear-gradient(135deg, #d4af37, #aa8c2c); color: #ffffff; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s;
-}
-input[type="submit"]:hover, button:hover { background: linear-gradient(135deg, #b8972e, #8a7322); }
-
-/* Tabel Data */
-table { width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e8e2ce; box-shadow: 0 2px 8px rgba(0,0,0,0.03); margin-bottom: 20px; }
-th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #f4f0e4; }
-th { background: #6d5c29; color: #dfc26a; font-weight: 600; }
-tr:hover { background: #fcfbfa; }
-
-/* Pesan Error & Cetak Struk */
-p[style*="color:red;"] { background: #fff5f5; color: #c53030 !important; padding: 10px 14px; border-radius: 6px; border: 1px solid #feb2b2; margin-bottom: 15px; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+body { background: #faf9f6; color: #3b3626; padding: 20px; max-width: 900px; margin: 0 auto; }
+h1, h2, h3 { color: #8a7322; margin-bottom: 10px; }
+a { color: #b8972e; font-weight: 600; text-decoration: none; }
+.card-container { display: flex; gap: 12px; flex-wrap: wrap; margin: 15px 0; }
+.card { background: #fff; border: 1px solid #e8e2ce; border-radius: 8px; padding: 15px; flex: 1 1 180px; text-align: center; }
+.card a { display: inline-block; padding: 5px 10px; background: #faf9f6; border: 1px solid #dcd4b8; border-radius: 4px; font-size: 12px; margin-top: 5px; }
+form { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #eee8d5; max-width: 450px; margin-bottom: 15px; }
+input, select { width: 100%; padding: 8px; margin: 5px 0 12px; border: 1px solid #dcd4b8; border-radius: 4px; }
+input[type="submit"], button { background: #d4af37; color: #fff; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e8e2ce; margin-bottom: 15px; }
+th, td { padding: 10px; border-bottom: 1px solid #f4f0e4; text-align: left; }
+th { background: #2c2718; color: #dfc26a; }
+p[style*="color:red;"] { background: #fff5f5; color: #c53030 !important; padding: 8px; border-radius: 4px; }
 @media print { button, a { display: none !important; } table { border: 1px solid #000; } }

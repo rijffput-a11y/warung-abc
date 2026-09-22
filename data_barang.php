@@ -1,25 +1,16 @@
 <?php
-// data_barang.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
-
-$sql   = "SELECT * FROM tbl_barang ORDER BY nama_barang ASC";
-$hasil = mysqli_query($koneksi, $sql);
+$hasil = mysqli_query($koneksi, "SELECT * FROM tbl_barang ORDER BY nama_barang ASC");
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Data Barang - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Data Barang</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Data Barang</h2>
     <p><a href="dashboard.php">Dashboard</a> | <a href="tambah_barang.php">Tambah Barang</a></p>
     <table>
-        <tr>
-            <th>Kode</th><th>Nama Barang</th><th>Harga Satuan</th>
-            <th>Stok</th><th>Kadaluarsa</th><th>Aksi</th>
-        </tr>
+        <tr><th>Kode</th><th>Nama Barang</th><th>Harga Satuan</th><th>Stok</th><th>Kadaluarsa</th><th>Aksi</th></tr>
         <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
         <tr>
             <td><?php echo $row['kode_barang']; ?></td>

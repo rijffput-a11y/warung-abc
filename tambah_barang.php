@@ -1,13 +1,7 @@
-<?php 
-// tambah_barang.php
-include 'includes/cek_session.php'; 
-?>
+<?php include 'includes/cek_session.php'; ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Tambah Barang - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Tambah Barang</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Tambah Barang</h2>
     <form action="proses_tambah_barang.php" method="POST">

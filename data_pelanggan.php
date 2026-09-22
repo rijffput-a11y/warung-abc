@@ -1,17 +1,11 @@
 <?php
-// data_pelanggan.php
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
-
-$sql   = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";
-$hasil = mysqli_query($koneksi, $sql);
+$hasil = mysqli_query($koneksi, "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC");
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Data Pelanggan - Warung ABC</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head><title>Data Pelanggan</title><link rel="stylesheet" href="style.css"></head>
 <body>
     <h2>Data Pelanggan</h2>
     <p><a href="dashboard.php">Dashboard</a> | <a href="tambah_pelanggan.php">Tambah Pelanggan</a></p>
